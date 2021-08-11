@@ -1,0 +1,29 @@
+version: "3"
+services:
+  afaq_api:
+    container_name: afaq_api
+    image: node:14
+    environment:
+      - NODE_ENV=developement
+    volumes:
+      - nodemodules:/usr/src/app/node_modules
+      - .:/usr/src/app
+    working_dir: /usr/src/app
+    ports:
+      - "3000:3000"
+    links:
+      - afaq_database
+    depends_on: 
+      - afaq_database
+    command: npm run dev
+  afaq_database:
+    container_name: afaq_database
+    image: mongo
+    volumes:
+      - mongodata:/data/db
+    ports:
+      - "27017:27017"
+volumes:
+  nodemodules:
+    external: true
+  mongodata:

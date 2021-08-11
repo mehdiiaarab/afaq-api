@@ -11,7 +11,7 @@ app.use(morgan('dev')) // for logs
 app.use(express.urlencoded({ extended: false }))
 
 app.listen(serverConfig.PORT, () => {
-  console.log(`🔥 Server is listening on PORT ${serverConfig.PORT}`)
+  console.log(`🔥 Server is listening on PORTE ${serverConfig.PORT}`)
 })
 
 console.log(serverConfig)

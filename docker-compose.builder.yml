@@ -1,0 +1,17 @@
+version: '2'
+services:
+  base:
+    image: node:14
+    environment:
+      - NODE_ENV=developement
+    volumes:
+      - nodemodules:/usr/src/app/node_modules
+      - .:/usr/src/app
+    working_dir: /usr/src/app
+  install:
+    extends:
+      service: base
+    command: npm i
+volumes:
+  nodemodules:
+    external: true
